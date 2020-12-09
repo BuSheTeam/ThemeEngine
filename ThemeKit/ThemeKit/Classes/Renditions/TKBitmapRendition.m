@@ -136,6 +136,8 @@
                                                                  pixelHeight:(unsigned int)self.image.pixelsHigh];
     wrapper.pixelFormat = self.pixelFormat;
     wrapper.allowsMultiPassEncoding = NO;
+    // Remove alpha channel (Caused by Apple Store Review)
+    wrapper.wrapper.sourceAlphaInfo = 0;
     
     if (!self.image.isPlanar && self.image.hasAlpha &&
         self.image.bitsPerPixel == 32 && self.image.samplesPerPixel == 4 &&
